@@ -2,6 +2,13 @@ const { Telegraf } = require('telegraf');
 const Markup = require('telegraf/markup');
 const BOT_TOKEN = '1475900470:AAES0hsBltKMQ8-UCOd6-BY09bvM-PlhpmU';
 
+require('https')
+  .createServer()
+  .listen(process.env.PORT || 5000)
+  .on('request', function(req, res) {
+    res.end('');
+  });
+
 const covidData = require('covid19-api');
 
 const bot = new Telegraf(BOT_TOKEN);
